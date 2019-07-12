@@ -8,6 +8,8 @@ Can check the original python project [https://github.com/ktaebum/AttentionedDee
 # Prerequisite
 Install docker in your os
 
+Create checkpoints folder under the project and download the checkpoints pretrained model file from [https://drive.google.com/open?id=1J9o8uFBAkTpagBOLJc5jApFFWg-gyWLz]
+
 Inside terminal, cd to the project dir and run the >> docker-compose up
 
 Url to check is http://0.0.0.0:8081/
