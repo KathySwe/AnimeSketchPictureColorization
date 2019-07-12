@@ -8,4 +8,4 @@ Can check the original python project [https://github.com/ktaebum/AttentionedDee
 # Prerequisite
 Install docker in your os
 
-Inside terminal, cd to the project dir and run the
+Inside terminal, cd to the project dir and run the >> docker-compose up
