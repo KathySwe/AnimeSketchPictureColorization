@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+        {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+   
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+  
+
+    <script src="{% static "jquery-hex-colorpicker.js" %}"></script>
+    <link rel="stylesheet" href="{% static "jquery-hex-colorpicker.css" %}" />
+    
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    -->
+</head>
+
+<body>
+   
+    <h1> here is the sketch.</h1>
+    <br>
+    {% if url %}
+    <img src='{{ url }}'  width='512px' height='512px'>
+    {% endif %}
+    <a href='{{ url }}' download>download</a>
+    <h1> here is the color selected.</h1>
+    <br>
+    {% if colorimg %}
+    <img src='{{ colorimg }}'  width='512px' height='512px'>
+    {% endif %}
+    <a href='{{ colorimg }}' download>download</a>
+    <h1> here is the result.</h1>
+    <br>
+    {% if result %}
+    <img src='{{ result }}'  width='512px' height='512px'>
+    {% endif %}
+    <a href='{{ result }}' download>download</a>
+    <h1> here is the compare result.</h1>
+    <br>
+    {% if comresult %}
+    <img src='{{ comresult }}'>
+    {% endif %}
+    <a href='{{ comresult }}' download>download</a>
+</body>
+</html>

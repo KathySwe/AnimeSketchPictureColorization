@@ -1,0 +1,30 @@
+version: '3'
+volumes:
+  static_files:
+
+services:
+
+  web:
+    build: .
+
+    volumes:
+        - .:/customAni
+        - static_files:/static_files
+    ports:
+        - 8007:8007
+    command: gunicorn -w 4 customAnime.wsgi -b 0.0.0.0:8007
+#    command: bash -c "python manage.py collectstatic --no-input && python manage.py makemigrations && python manage.py migrate && python manage.py runserver gunicorn customAnime.wsgi -b 0.0.0.0:8005"
+#    command: python manage.py migrate && python manage.py runserver 0.0.0.0:8010
+
+  nginx:
+    build :
+        context : .
+        dockerfile : nginx/Dockerfileccc
+    volumes:
+        - .:/customAni
+        - static_files:/static_files
+    ports:
+        - 8081:80
+
+
+#docker-compose up

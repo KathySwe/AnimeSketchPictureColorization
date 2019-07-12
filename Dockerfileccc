@@ -1,0 +1,37 @@
+# The first instruction is what image we want to base our container on
+# We Use an official Python runtime as a parent image from Dockerhub that comes with Python and linux setup for you ready for use in a python project
+FROM python:3.6
+
+# The enviroment variable ensures that the python output is set straight
+# to the terminal with out buffering it first
+#The next directive ENV PYTHONUNBUFFERED 1is an environment variable, which instructs Docker not to buffer the output from Python
+#in the standard output buffer, but simply send it straight to the terminal.
+ENV PYTHONUNBUFFERED 1
+
+# create root directory for our project in the container
+#RUN instructs Docker to execute what ever command that comes after as if you were executing it in a terminal on a server
+#mkdir instructs Docker to create a folder in the container called customAni which we shall use to store our application files.
+RUN mkdir /customAni
+RUN mkdir /static
+#RUN mkdir /customAni/customAnime
+# Set the working directory to /customAni
+#sets the working directory and all the directives that follow in the Dockerfile will be executed in that directory.
+WORKDIR /customAni
+
+# Copy the current directory contents into the container at /customAni
+#ADD all files in my project root directory where the Dockerfile is to the customAni directory in the container.
+# #The ADD directive copies files and directories from the source to the destination specified in the directive.
+ADD . /customAni/
+# ADD ./customAnime /customAni/customAnime
+#
+
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+
+RUN python manage.py collectstatic --no-input
+EXPOSE 8006
+#
+CMD exec gunicorn customAnime.wsgi:application --bind 0.0.0.0:8006 --workers 3
+
+# docker run -p 8006:8006 -i -t ship_image
+
