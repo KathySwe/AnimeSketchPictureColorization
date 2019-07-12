@@ -9,3 +9,5 @@ Can check the original python project [https://github.com/ktaebum/AttentionedDee
 Install docker in your os
 
 Inside terminal, cd to the project dir and run the >> docker-compose up
+
+Url to check is http://0.0.0.0:8081/
