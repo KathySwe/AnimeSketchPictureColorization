@@ -3,7 +3,7 @@
 
 ### Colorize the sketch anime image by choosing the color from palette.
 
-Can check the original python project [https://github.com/ktaebum/AttentionedDeepPaint] . This is the modification with the Django framweork.
+Can check the original python project [https://github.com/ktaebum/AttentionedDeepPaint] . This is the modification with the Django framweork and using Docker compose.
 
 # Prerequisite
 Install docker in your os
