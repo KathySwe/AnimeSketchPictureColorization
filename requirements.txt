@@ -16,7 +16,7 @@ six==1.11.0
 toolz==0.9.0
 torch==0.4.1
 torchvision==0.2.1
-Django==2.2.2
+Django==2.2.20
 gunicorn==19.6.0
 
 
